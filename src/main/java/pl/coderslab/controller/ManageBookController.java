@@ -29,7 +29,7 @@ public class ManageBookController {
     }
 
     @GetMapping("/add")
-    public String addBookForm(Model model){
+    public String addBook(Model model){
         model.addAttribute("book", new Book());
         return "book-add";
     }
@@ -37,7 +37,7 @@ public class ManageBookController {
     @PostMapping("/add")
     public String handleAddBookForm(@Valid @ModelAttribute("book") Book book, BindingResult result){
         if(result.hasErrors()){
-            return "books-add";
+            return "book-add";
         }
         bookService.add(book);
         log.info("Adding new book - {}", book);
@@ -49,6 +49,22 @@ public class ManageBookController {
         bookService.delete(id);
         return "redirect:/admin/books/all";
     }
+
+    @GetMapping("/edit/{id}")
+    public String editBook(@PathVariable Long id, Model model){
+        model.addAttribute("bookToEdit", bookService.get(id));
+        return "book-edit";
+    }
+
+    @PostMapping("/edit")
+    public String handleEditBookForm(@Valid @ModelAttribute("bookToEdit") Book book, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "book-edit";
+        }
+        bookService.update(book);
+        return "redirect:/admin/books/all";
+    }
+
 
 
 

@@ -4,7 +4,7 @@
 <!DOCTYPE>
 <html>
 <head>
-    <title>Add new book</title>
+    <title>Book edit</title>
     <style>
         .error{
             color:red;
@@ -14,7 +14,9 @@
 
 <body>
 
-<form:form action="/admin/books/add" method="post" modelAttribute="book">
+<form:form action="/admin/books/edit" method="post" modelAttribute="bookToEdit">
+
+    <form:input type="hidden" name="id" path="id" id="id" />
 
     <label for="isbn">ISBN</label>
     <form:input path="isbn" id="isbn"/>
