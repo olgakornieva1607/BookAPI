@@ -37,11 +37,13 @@ public class JpaBookService implements BookService {
 
     @Override
     public void delete(Long id) {
+
         bookRepository.deleteById(id);
     }
 
     @Override
     public void update(Book book) {
+
         bookRepository.save(book);
     }
 }
