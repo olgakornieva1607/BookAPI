@@ -13,6 +13,7 @@
     <th>title</th>
     <th>author</th>
     <th>action</th>
+    <th>type</th>
     </thead>
     <tbody>
     <c:forEach items="${books}" var="book">
@@ -20,6 +21,7 @@
                 <td><c:out value="${book.isbn}"/></td>
                 <td><c:out value="${book.title}"/></td>
                 <td><c:out value="${book.author}"/></td>
+                <td><c:out value="${book.type}"/></td>
                 <td>
                     <a href="<c:out value="/admin/books/delete/${book.id}"/>">Delete</a>
                     <a href="<c:out value="/admin/books/edit/${book.id}"/>">Edit</a>

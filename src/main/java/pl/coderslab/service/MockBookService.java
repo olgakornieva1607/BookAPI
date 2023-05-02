@@ -1,11 +1,14 @@
 package pl.coderslab.service;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import pl.coderslab.entity.Book;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 
 @Component
 public class MockBookService implements BookService {
